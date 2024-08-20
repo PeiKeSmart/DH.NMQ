@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+	<PropertyGroup>
+		<TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+		<AssemblyName>DH.NMQ</AssemblyName>
+		<AssemblyTitle>轻量级消息队列</AssemblyTitle>
+		<Description>轻量级消息队列，无延迟分发，支持消费组和消息去重，不支持集群部署</Description>
+		<Company>湖北登灏科技有限公司</Company>
+		<Copyright>©2020-2024 湖北登灏科技有限公司</Copyright>
+		<VersionPrefix>2.0</VersionPrefix>
+		<VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
+		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(VersionPrefix).$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</AssemblyVersion>
+		<OutputPath>..\Bin</OutputPath>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<NoWarn>1701;1702;NU5104;NU1505;NETSDK1138;CS7035</NoWarn>
+	</PropertyGroup>
+	<PropertyGroup>
+		<!--<IsPackable>true</IsPackable>-->
+		<PackageId>$(AssemblyName)</PackageId>
+		<Authors>$(Company)</Authors>
+		<PackageProjectUrl>https://www.haocoding.com/</PackageProjectUrl>
+		<PackageIcon>DH.png</PackageIcon>
+		<RepositoryUrl>https://github.com/PeiKeSmart/DH.NCore</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>湖北登灏科技有限公司;DH组件;DH;$(AssemblyName)</PackageTags>
+		<PackageReleaseNotes>v11目标是优化内存占用降低GC</PackageReleaseNotes>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageReadmeFile>Readme.MD</PackageReadmeFile>
+		<!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
+	</PropertyGroup>
+	<ItemGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="MQServer.cs" />
+		<Compile Remove="Subscriber.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="..\Doc\DH.png" Link="DH.png" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\Readme.MD">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="DH.NCode" Version="3.7.2024.820" />
+	</ItemGroup>
+
+</Project>
