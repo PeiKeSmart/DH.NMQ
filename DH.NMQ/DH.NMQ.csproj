@@ -60,6 +60,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="DH.NCode" Version="3.7.2024.820" />
+	  <PackageReference Include="DH.NRemoting" Version="3.7.2024.820" />
 	</ItemGroup>
 
 </Project>

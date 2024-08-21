@@ -104,7 +104,7 @@ namespace NewLife.MessageQueue
             {
                 lock (this)
                 {
-                    if (_timer == null) _timer = new TimerX(DoCheckQueue, null, 5_000, 5_000) { CanExecute = () => Count > 0, Async = true };
+                    if (_timer == null) _timer = new TimerX(DoCheckQueue, null, 5_000, 5_000) { /*CanExecute = () => Count > 0,*/ Async = true };
                 }
             }
 

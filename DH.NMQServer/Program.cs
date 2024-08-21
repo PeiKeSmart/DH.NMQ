@@ -8,11 +8,11 @@ namespace NewLife.MQServer
 {
     class Program
     {
-        static void Main(String[] args) => MyService.ServiceMain();
+        static void Main(String[] args) => new MyService().Main(args);
     }
 
     /// <summary>服务类。名字可以自定义</summary>
-    class MyService : AgentServiceBase<MyService>
+    class MyService : ServiceBase
     {
         public MyService()
         {
@@ -23,7 +23,7 @@ namespace NewLife.MQServer
 
         /// <summary>开始服务</summary>
         /// <param name="reason"></param>
-        protected override void StartWork(String reason)
+        public override void StartWork(String reason)
         {
             var set = Setting.Current;
 
@@ -53,7 +53,7 @@ namespace NewLife.MQServer
 
         /// <summary>停止服务</summary>
         /// <param name="reason"></param>
-        protected override void StopWork(String reason)
+        public override void StopWork(String reason)
         {
             _Server.TryDispose();
             _Server = null;

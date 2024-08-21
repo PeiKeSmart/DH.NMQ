@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -55,12 +56,12 @@
   <ItemGroup>
     <ProjectReference Include="..\DH.NMQ\DH.NMQ.csproj">
       <Project>{2e4585cb-1eb3-4174-b509-ef87522b0259}</Project>
-      <Name>NewLife.MQ</Name>
+      <Name>DH.NMQ</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="NewLife.Core">
-      <Version>8.4.2019.1109</Version>
+    <PackageReference Include="DH.NCore">
+      <Version>3.7.2024.820</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

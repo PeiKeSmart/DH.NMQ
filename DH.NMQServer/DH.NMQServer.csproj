@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net45;netcoreapp2.1;net40</TargetFrameworks>
+    <TargetFrameworks>net45;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>NewLife.MQServer</AssemblyName>
     <AssemblyTitle>消息队列服务器</AssemblyTitle>
     <Description>轻量级消息队列，无延迟分发，支持消费组和消息去重，不支持集群部署</Description>
@@ -36,17 +36,16 @@
     <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NewLife.Agent" Version="8.4.2019.1109" />
-    <PackageReference Include="NewLife.Core" Version="8.4.2019.1109" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\NewLife.MQ\NewLife.MQ.csproj" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)'=='net45' or '$(TargetFramework)'=='net40'">
     <Reference Include="System.ServiceProcess" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DH.NAgent" Version="3.7.2024.821-beta0142" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DH.NMQ\DH.NMQ.csproj" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
