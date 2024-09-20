@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DH.NCore">
-      <Version>3.7.2024.918-beta0619</Version>
+      <Version>3.7.2024.919-beta1606</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
